@@ -1,0 +1,6 @@
+pfqaplatform_revisions_lifetime.settings_form:
+  title: 'Pfqaplatform Revisions Lifetime'
+  parent: system.admin_config_system
+  route_name: pfqaplatform_revisions_lifetime.settings_form
+  description: 'Selects time period for delete old url node revisions.'
+  weight: 99

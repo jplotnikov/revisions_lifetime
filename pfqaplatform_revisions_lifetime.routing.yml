@@ -1,0 +1,9 @@
+pfqaplatform_revisions_lifetime.settings_form:
+  path: '/admin/config/pfqaplatform_revisions_lifetime/settings'
+  defaults:
+    _form: '\Drupal\pfqaplatform_revisions_lifetime\Form\RevisionLifetimeConfigForm'
+    _title: 'Settings Form'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

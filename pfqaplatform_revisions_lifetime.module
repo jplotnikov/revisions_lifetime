@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Pfqaplatform revisions lifetime.
+ */
+
+/**
+ * Implements hook_cron().
+ *
+ * Removing old revisions by CRON.
+ */
+function pfqaplatform_revisions_lifetime_cron() {
+  $delete = \Drupal::service('pfqaplatform_revisions_lifetime.revision_cleanup');
+  $delete->deleteOldRevision();
+}

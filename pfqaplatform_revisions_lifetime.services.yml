@@ -1,0 +1,4 @@
+services:
+  pfqaplatform_revisions_lifetime.revision_cleanup:
+    class: Drupal\pfqaplatform_revisions_lifetime\RevisionLifetimeCleanup
+    arguments: ['@entity_type.manager', '@config.factory']

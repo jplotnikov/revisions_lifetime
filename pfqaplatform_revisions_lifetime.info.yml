@@ -1,0 +1,7 @@
+name: Pfqaplatform Revisions Lifetime
+type: module
+description: 'Selects time period for delete old url node revisions.'
+package: pfqaplatform
+core: 8.x
+dependencies:
+  - automated_cron
