@@ -1,0 +1,4 @@
+services:
+  revisions_lifetime.revision_cleanup:
+    class: Drupal\revisions_lifetime\RevisionLifetimeCleanup
+    arguments: ['@entity_type.manager', '@config.factory']

@@ -1,10 +1,10 @@
 <?php
 
-namespace Drupal\pfqaplatform_revisions_lifetime;
+namespace Drupal\revisions_lifetime;
 
 /**
  * @file
- * Contains Drupal\pfqaplatform_revisions_lifetime\PfqaplatformRevisionsLifetime.
+ * Contains Drupal\revisions_lifetime\RevisionsLifetime.
  */
 
 use Drupal\Core\Database\Database;
@@ -31,7 +31,7 @@ class RevisionLifetimeCleanup {
   protected $config;
 
   /**
-   * Constructs this PfqaplatformRevisionsLifetime object.
+   * Constructs this RevisionsLifetime object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   Instance of the "entity_type.manager" service.
@@ -48,12 +48,12 @@ class RevisionLifetimeCleanup {
    */
   public function deleteOldRevision() {
     // Get period, quantity items from config and calculate delete age.
-    $period = $this->config->get('pfqaplatform_revisions_lifetime.settings')->get('period');
-    $quantity_items = $this->config->get('pfqaplatform_revisions_lifetime.settings')->get('quantity_items');
+    $period = $this->config->get('revisions_lifetime.settings')->get('period');
+    $quantity_items = $this->config->get('revisions_lifetime.settings')->get('quantity_items');
     $deleted_age = time() - $period * $quantity_items;
 
     // Get delete content types from config.
-    $content_types = $this->config->get('pfqaplatform_revisions_lifetime.settings')->get('content_types_items');
+    $content_types = $this->config->get('revisions_lifetime.settings')->get('content_types_items');
 
     // Selection of revisions suitable for the condition.
     $revisions = Database::getConnection()->select('node_revision', 'r')

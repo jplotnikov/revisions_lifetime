@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Revisions lifetime.
+ */
+
+/**
+ * Implements hook_cron().
+ *
+ * Removing old revisions by CRON.
+ */
+function revisions_lifetime_cron() {
+  $delete = \Drupal::service('revisions_lifetime.revision_cleanup');
+  $delete->deleteOldRevision();
+}

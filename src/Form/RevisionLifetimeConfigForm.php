@@ -1,10 +1,10 @@
 <?php
 
-namespace Drupal\pfqaplatform_revisions_lifetime\Form;
+namespace Drupal\revisions_lifetime\Form;
 
 /**
  * @file
- * Contains Drupal\pfqaplatform_revisions_lifetime\Form\RevisionLifetimeConfigForm.
+ * Contains Drupal\revisions_lifetime\Form\RevisionLifetimeConfigForm.
  */
 
 use Drupal\Core\Form\ConfigFormBase;
@@ -13,7 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class SettingsForm.
  *
- * @package Drupal\pfqaplatform_revisions_lifetime\Form
+ * @package Drupal\revisions_lifetime\Form
  */
 class RevisionLifetimeConfigForm extends ConfigFormBase {
 
@@ -22,7 +22,7 @@ class RevisionLifetimeConfigForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'pfqaplatform_revisions_lifetime.settings',
+      'revisions_lifetime.settings',
     ];
   }
 
@@ -37,7 +37,7 @@ class RevisionLifetimeConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = \Drupal::config('pfqaplatform_revisions_lifetime.settings');
+    $config = \Drupal::config('revisions_lifetime.settings');
 
     // Get all Content Types.
     $content_types = \Drupal::entityTypeManager()
@@ -109,12 +109,12 @@ class RevisionLifetimeConfigForm extends ConfigFormBase {
 
     // Delete all old revision.
     if ($form_state->getValue('delete_old_revision')) {
-      $delete = \Drupal::service('pfqaplatform_revisions_lifetime.revision_cleanup');
+      $delete = \Drupal::service('revisions_lifetime.revision_cleanup');
       $delete->deleteOldRevision();
     }
 
     // Save settings for content types and lifetime.
-    $config = \Drupal::configFactory()->getEditable('pfqaplatform_revisions_lifetime.settings')
+    $config = \Drupal::configFactory()->getEditable('revisions_lifetime.settings')
       ->set('period', $form_state->getValue('period'))
       ->set('quantity_items', $form_state->getValue('quantity_items'))
       ->set('content_types_items', $form_state->getValue('content_types_items'))

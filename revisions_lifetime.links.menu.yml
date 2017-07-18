@@ -1,0 +1,6 @@
+revisions_lifetime.settings_form:
+  title: 'Revisions Lifetime'
+  parent: system.admin_config_system
+  route_name: revisions_lifetime.settings_form
+  description: 'Selects time period for delete old url node revisions.'
+  weight: 99

@@ -1,0 +1,9 @@
+revisions_lifetime.settings_form:
+  path: '/admin/config/revisions_lifetime/settings'
+  defaults:
+    _form: '\Drupal\revisions_lifetime\Form\RevisionLifetimeConfigForm'
+    _title: 'Settings Form'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
