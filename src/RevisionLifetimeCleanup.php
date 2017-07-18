@@ -57,9 +57,9 @@ class RevisionLifetimeCleanup {
 
     // Selection of revisions suitable for the condition.
     $revisions = Database::getConnection()->select('node_revision', 'r')
-      ->fields('r', array('nid', 'vid'));
-    $revisions->addJoin('left','node','n','r.nid=n.nid');
-    $revisions->fields('n', array('vid'));
+      ->fields('r', ['nid', 'vid']);
+    $revisions->addJoin('left', 'node', 'n', 'r.nid=n.nid');
+    $revisions->fields('n', ['vid']);
     $revisions->condition('n.type', $content_types, 'IN');
     $revisions->condition('r.revision_timestamp', $deleted_age, '<');
     $data = $revisions->execute();

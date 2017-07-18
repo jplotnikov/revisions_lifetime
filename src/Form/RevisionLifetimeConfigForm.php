@@ -54,12 +54,12 @@ class RevisionLifetimeConfigForm extends ConfigFormBase {
       '#title' => $this->t('Content types:'),
       '#description' => $this->t('Content types than will be removed. If nothing is selected, then the revisions of all content types will be deleted'),
     ];
-    $form['content_types']['content_types_items'] = array(
+    $form['content_types']['content_types_items'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Select Content types:'),
       '#options' => $content_types_items,
       '#default_value' => $config->get('content_types_items'),
-    );
+    ];
 
     $form['revisions_age'] = [
       '#type' => 'fieldset',
@@ -70,14 +70,14 @@ class RevisionLifetimeConfigForm extends ConfigFormBase {
       '3600' => $this->t('Hours'),
       '86400' => $this->t('Days'),
       '604800' => $this->t('Weeks'),
-      '2592000' => $this->t('Month'),
+      '2592000' => $this->t('Month')
     ];
-    $form['revisions_age']['period'] = array(
+    $form['revisions_age']['period'] = [
       '#type' => 'select',
       '#title' => $this->t('Items:'),
       '#options' => $time_period,
       '#default_value' => $config->get('period'),
-    );
+    ];
     $form['revisions_age']['quantity_items'] = [
       '#type' => 'number',
       '#title' => $this->t('Quantity items:'),
